@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voittopiste - Nopeat ja luotettavat nettikasinot 2026. Vertaa turvallisia kasinoita ja lunasta bonukset.">
+    <title>Voittopiste - Nopeat & Luotettavat Kasinot 2026</title>
+    
+    <!-- FONTIT -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* PERUSASETUKSET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* HEADER */
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .logo {
+            font-size: 3em;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            color: #FFD700;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        /* HERO-OSIO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            color: #FFFFFF;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        /* BANNERI-OSIO */
+        .banner-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .banner-placeholder {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px dashed #FFD700;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 728px;
+            color: #FFFFFF;
+            font-size: 1.2em;
+        }
+        
+        /* KASINO-KORTIT */
+        .casinos {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .casino-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .casino-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border-top: 5px solid #FFD700;
+        }
+        
+        .casino-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .casino-name {
+            font-size: 2em;
+            font-weight: 700;
+            color: #0066CC;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .casino-badge {
+            background: #FFD700;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .casino-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .casino-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .casino-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+        }
+        
+        /* INFO-OSIO */
+        .info-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .info-section h2 {
+            font-size: 2.5em;
+            color: #0066CC;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .step {
+            background: #f9f9f9;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            border-left: 6px solid #FFD700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step h3 {
+            color: #0066CC;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .step p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .disclaimer {
+            font-size: 0.95em;
+            color: #CCCCCC;
+            max-width: 900px;
+            margin: 0 auto 15px;
+            line-height: 1.8;
+        }
+        
+        .warning {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #FFD700;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .warning strong {
+            color: #FFD700;
+            font-size: 1.2em;
+        }
+        
+        /* MOBIILI */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2em;
+            }
+            
+            .tagline {
+                font-size: 1.1em;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .hero p {
+                font-size: 1.1em;
+            }
+            
+            .casino-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .casino-card {
+                padding: 25px;
+            }
+            
+            .info-section {
+                padding: 50px 20px;
+            }
+            
+            .step {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🏆 VOITTOPISTE</div>
+        <div class="tagline">Nopeat & Luotettavat Kasinot</div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Parhaat Nettikasinot 2026</h1>
+        <p>Vertaa nopeat ja luotettavat kasinot. Turvalliset maksutavat, nopeat kotiutukset ja parhaat bonukset suomalaisille pelaajille.</p>
+    </section>
+    
+    <!-- BANNERI-OSIO -->
+    <section class="banner-section">
+        <div class="banner-placeholder">
+            🎯 TÄHÄN VOIT LISÄTÄ AFFILIATE-BANNERIN<br>
+            (Esimerkiksi 728x90 px kasino-banneri)
+        </div>
+    </section>
+    
+    <!-- KASINO-KORTIT -->
+    <section class="casinos">
+        <h2 class="section-title">🔥 Top 3 Luotettavat Kasinot</h2>
+        
+        <div class="casino-grid">
+            <!-- KASINO 1 -->
+            <div class="casino-card">
+                <div class="casino-name">
+                    🎰 Kasino 1
+                    <span class="casino-badge">NOPEIN</span>
+                </div>
+                <ul class="casino-features">
+                    <li>✅ 100% Tervetulobonus jopa 500€</li>
+                    <li>✅ Kotiutus alle 24 tunnissa</li>
+                    <li>✅ Maltan lisenssi (MGA)</li>
+                    <li>✅ 24/7 asiakaspalvelu suomeksi</li>
+                    <li>✅ Yli 3000 peliä</li>
+                    <li>✅ Verovapaat voitot</li>
+                </ul>
+                <!-- MUOKKAA TÄHÄN AFFILIATE-LINKKI -->
+                <a href="https://your-affiliate-link-1.com" class="cta-button" target="_blank" rel="nofollow">
+                    🚀 Siirry Kasinolle
+                </a>
+            </div>
+            
+            <!-- KASINO 2 -->
+            <div class="casino-card">
+                <div class="casino-name">
+                    🎲 Kasino 2
+                    <span class="casino-badge">SUOSITUIN</span>
+                </div>
+                <ul class="casino-features">
+                    <li>✅ 200 Ilmaiskierrosta + 100% Bonus</li>
+                    <li>✅ Ei kierrätysvaatimuksia</li>
+                    <li>✅ Viron lisenssi (EMTA)</li>
+                    <li>✅ Live-kasino 24/7</li>
+                    <li>✅ VIP-ohjelma</li>
+                    <li>✅ Verovapaat voitot</li>
+                </ul>
+                <!-- MUOKKAA TÄHÄN AFFILIATE-LINKKI -->
+                <a href="https://your-affiliate-link-2.com" class="cta-button" target="_blank" rel="nofollow">
+                    🚀 Siirry Kasinolle
+                </a>
+            </div>
+            
+            <!-- KASINO 3 -->
+            <div class="casino-card">
+                <div class="casino-name">
+                    🃏 Kasino 3
+                    <span class="casino-badge">PARAS BONUS</span>
+                </div>
+                <ul class="casino-features">
+                    <li>✅ 150% Bonus + 100 Free Spins</li>
+                    <li>✅ Kotiutus 1-2 päivässä</li>
+                    <li>✅ Maltan lisenssi (MGA)</li>
+                    <li>✅ Vedonlyönti mukana</li>
+                    <li>✅ Mobiili-optimoitu</li>
+                    <li>✅ Verovapaat voitot</li>
+                </ul>
+                <!-- MUOKKAA TÄHÄN AFFILIATE-LINKKI -->
+                <a href="https://your-affiliate-link-3.com" class="cta-button" target="_blank" rel="nofollow">
+                    🚀 Siirry Kasinolle
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INFO-OSIO -->
+    <section class="info-section">
+        <h2>🎯 Näin Aloitat</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1️⃣ Valitse kasino</h3>
+                <p>Valitse yllä olevasta listasta kasino, joka sopii sinulle parhaiten. Kaikki ovat turvallisia, luotettavia ja suomalaisille sopivia.</p>
+            </div>
+            
+            <div class="step">
+                <h3>2️⃣ Luo tili</h3>
+                <p>Rekisteröidy kasinolle klikkaamalla "Siirry Kasinolle" -painiketta. Rekisteröinti on nopea ja helppo, usein vain pankkitunnuksilla.</p>
+            </div>
+            
+            <div class="step">
+                <h3>3️⃣ Talleta ja lunasta bonus</h3>
+                <p>Tee ensimmäinen talletus ja lunasta tervetulobonus. Muista lukea bonusehdot huolellisesti ennen pelaamista.</p>
+            </div>
+            
+            <div class="step">
+                <h3>4️⃣ Pelaa vastuullisesti</h3>
+                <p>Muista, että pelaaminen on vain yli 18-vuotiaille. Pelaa vain summilla, jotka voit menettää. Pidä taukoja ja seuraa peliaikaasi.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>🏆 Voittopiste - Nopeat & Luotettavat Kasinot</strong></p>
+        <p>© 2026 Voittopiste. Kaikki oikeudet pidätetään.</p>
+        
+        <div class="disclaimer">
+            ⚠️ <strong>Affiliate-ilmoitus:</strong> Tämä sivusto sisältää affiliate-linkkejä. Voimme ansaita komission, jos rekisteröidyt tai talletat linkkiemme kautta, ilman lisäkustannuksia sinulle.
+        </div>
+        
+        <div class="disclaimer">
+            🎲 <strong>Vastuullinen pelaaminen:</strong> Pelaaminen on vain yli 18-vuotiaille. Pelaa vastuullisesti. Jos pelaaminen alkaa aiheuttaa ongelmia, hae apua osoitteesta <strong>peluuri.fi</strong>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ TÄRKEÄÄ:</strong><br>
+            Nettikasinoiden markkinointi Suomessa on kiellettyä. Tämä sivusto on tarkoitettu vain kansainvälisille käyttäjille.
+        </div>
+    </footer>
+</body>
+</html>
+
