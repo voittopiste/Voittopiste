@@ -1,841 +1,1138 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voittopiste | Casino-opas</title>
-  <meta name="description" content="Voittopiste – moderni, monikielinen nettikasino-opas. Vertaa top 10 kasinoa, bonusdiilejä ja suosittuja slotteja yhdellä sivulla." />
-  <meta name="theme-color" content="#080811" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voittopiste – monikielinen kasino-opas, bonusvertailu ja slot-speksit.">
+  <title>Voittopiste.com | Casino-opas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #080811;
-      --panel: #121225;
-      --panel-soft: #191933;
-      --text: #f5f7ff;
-      --muted: #a9b0c7;
-      --gold: #ffd56a;
-      --gold2: #ffb84d;
-      --accent: #7a3cff;
-      --line: rgba(255,255,255,.08);
-      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --ink: #050510;
+      --navy: #090a20;
+      --panel: #11122e;
+      --panel2: #171846;
+      --purple: #751dff;
+      --purple2: #c239ff;
+      --orange: #ff6a00;
+      --orange2: #ffb000;
+      --white: #f8f7ff;
+      --muted: #aeb1cf;
+      --line: rgba(255, 255, 255, 0.12);
+      --gradient: linear-gradient(135deg, #6f18ff 0%, #c637ff 45%, #ff6a00 100%);
+      --gold-gradient: linear-gradient(135deg, #ff9d00, #ffe24a);
+      --shadow: 0 22px 65px rgba(0, 0, 0, 0.45);
       --radius: 22px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
+      font-family: Poppins, sans-serif;
+      color: var(--white);
       background:
-        radial-gradient(circle at 10% 0%, rgba(122,60,255,.18), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(255,213,106,.15), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(255,184,77,.12), transparent 32%),
-        linear-gradient(180deg, #05050a 0%, var(--bg) 100%);
-      color: var(--text);
+        radial-gradient(circle at 50% -20%, #25105a 0%, transparent 42%),
+        linear-gradient(180deg, #03030a 0%, var(--ink) 100%);
       overflow-x: hidden;
     }
-    .wrap { width: min(1240px, 100% - 24px); margin: 0 auto; position: relative; z-index: 1; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 0 47%,
+          rgba(117, 29, 255, 0.055) 48% 49%,
+          transparent 50%
+        );
+      background-size: 120px 120px;
+      opacity: 0.7;
+    }
+
+    .wrap {
+      width: min(1240px, calc(100% - 24px));
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
+      background: rgba(5, 5, 16, 0.84);
       backdrop-filter: blur(16px);
-      background: rgba(7,7,15,.86);
       border-bottom: 1px solid var(--line);
     }
+
     .head {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      padding: 14px 0;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 0;
     }
+
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 0;
+      gap: 13px;
     }
-    .brand-logo img {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
+
+    .logo {
+      width: 70px;
+      height: 70px;
       object-fit: cover;
-      border: 1px solid rgba(255,213,106,.4);
-      box-shadow: 0 0 0 4px rgba(255,213,106,.1), 0 18px 40px rgba(0,0,0,.6);
+      border-radius: 50%;
+      border: 2px solid var(--purple2);
+      box-shadow:
+        0 0 0 4px rgba(117, 29, 255, 0.18),
+        0 0 32px rgba(194, 57, 255, 0.34);
     }
-    .brand-text h1 {
+
+    .brand h1 {
       margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.45rem, 3vw, 2.35rem);
       font-weight: 900;
-      letter-spacing: .08em;
+      letter-spacing: 0.1em;
     }
-    .brand-text p {
-      margin: 5px 0 0;
-      font-size: .9rem;
+
+    .brand p {
+      margin: 4px 0 0;
       color: var(--muted);
+      font-size: 0.86rem;
     }
+
     .langs {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
+      flex-wrap: wrap;
     }
+
     .lang-btn {
       padding: 9px 13px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: #131326;
-      color: var(--text);
-      font-size: .88rem;
-      font-weight: 700;
+      border: 1px solid var(--line);
+      background: #11112a;
+      color: var(--white);
+      font-weight: 800;
       cursor: pointer;
     }
+
     .lang-btn.active {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
-      color: #241500;
-      border-color: var(--gold);
+      background: var(--gradient);
+      border-color: transparent;
     }
 
-    .hero { padding: 34px 0 20px; }
+    /* HERO */
+
+    .hero {
+      padding: 34px 0 22px;
+    }
+
     .hero-card {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 20px;
+      grid-template-columns: 1.08fr 0.92fr;
       align-items: center;
-      background: linear-gradient(135deg, rgba(18,18,37,.95), rgba(26,26,54,.9));
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
       overflow: hidden;
+      border: 1px solid rgba(194, 57, 255, 0.32);
+      border-radius: 30px;
+      background: linear-gradient(
+        135deg,
+        rgba(17, 18, 46, 0.95),
+        rgba(31, 12, 68, 0.88)
+      );
+      box-shadow: var(--shadow);
     }
-    .hero-copy { padding: 32px; }
+
+    .hero-copy {
+      padding: 35px;
+    }
+
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-block;
       padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(255,213,106,.1);
-      border: 1px solid rgba(255,213,106,.18);
-      color: var(--gold);
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .06em;
+      border-radius: 99px;
+      background: rgba(194, 57, 255, 0.12);
+      border: 1px solid rgba(194, 57, 255, 0.35);
+      color: #eaa7ff;
       text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
     }
+
     .hero h2 {
-      margin: 18px 0 12px;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: .98;
-      letter-spacing: -.03em;
+      margin: 18px 0 13px;
+      font-size: clamp(2.15rem, 5vw, 4.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
     }
-    .hero h2 .accent { color: var(--gold); }
-    .hero p {
+
+    .accent {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p {
       margin: 0;
       color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 60ch;
+      max-width: 62ch;
     }
-    .hero-actions {
+
+    .actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 22px;
+      flex-wrap: wrap;
+      margin-top: 23px;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      border-radius: 14px;
       padding: 13px 17px;
-      font-weight: 800;
-      font-size: .96rem;
+      border-radius: 13px;
+      font-weight: 900;
       border: 1px solid transparent;
-      cursor: pointer;
     }
-    .btn-primary { background: linear-gradient(135deg,var(--gold),var(--gold2)); color:#261500; }
-    .btn-secondary { background: rgba(255,255,255,.05); color: var(--text); border-color: var(--line); }
 
-    .hero-visual {
-      position: relative;
-      min-height: 360px;
-      background: radial-gradient(circle at 50% 20%, rgba(255,213,106,.12), transparent 45%), #090912;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 10px 28px rgba(117, 29, 255, 0.27);
     }
-    .hero-visual img {
+
+    .secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      border-color: var(--line);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(194, 57, 255, 0.28), transparent 38%),
+        #080817;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 106, 0, 0.35);
+      box-shadow:
+        0 0 55px rgba(194, 57, 255, 0.4),
+        inset 0 0 50px rgba(117, 29, 255, 0.2);
+    }
+
+    .hero-art img {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 420px;
-      border-radius: 26px;
+      height: 100%;
+      max-width: 460px;
       object-fit: cover;
     }
-    .halo {
-      position: absolute;
-      top: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,213,106,.3);
-      box-shadow: 0 0 40px rgba(255,213,106,.16), inset 0 0 20px rgba(255,213,106,.1);
-      pointer-events: none;
+
+    /* SECTIONS */
+
+    section {
+      padding: 22px 0;
     }
 
-    section { padding: 22px 0; }
     .section-head {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      gap: 16px;
-      margin-bottom: 14px;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 15px;
     }
-    .section-head h3 {
-      margin: 0;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-    }
-    .section-head p { margin: 0; color: var(--muted); font-size: .96rem; }
 
-    .grid { display: grid; gap: 16px; }
-    .casino-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .slot-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .casino-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .slot-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .card {
-      background: linear-gradient(180deg, rgba(18,18,37,.96), rgba(12,12,22,.96));
-      border-radius: var(--radius);
+      background: linear-gradient(
+        180deg,
+        rgba(17, 18, 46, 0.98),
+        rgba(8, 8, 22, 0.98)
+      );
       border: 1px solid var(--line);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .casino-card { display: grid; grid-template-rows: 200px auto; }
+    /* CASINO CARDS */
+
+    .casino {
+      display: grid;
+      grid-template-rows: 205px auto;
+    }
+
     .banner {
       position: relative;
-      background: linear-gradient(135deg, rgba(122,60,255,.18), rgba(255,213,106,.14));
+      background: linear-gradient(
+        135deg,
+        rgba(117, 29, 255, 0.2),
+        rgba(255, 106, 0, 0.13)
+      );
       overflow: hidden;
     }
-    .banner img { width: 100%; height: 100%; object-fit: cover; }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .rank {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      z-index: 2;
+      top: 13px;
+      left: 13px;
+      width: 43px;
+      height: 43px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg,var(--gold),var(--gold2));
-      color: #241500;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      color: #241300;
       font-weight: 900;
-      box-shadow: 0 10px 26px rgba(255,213,106,.3);
     }
-    .badge {
+
+    .tag {
       position: absolute;
-      top: 14px;
-      right: 14px;
+      z-index: 2;
+      top: 13px;
+      right: 13px;
       padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(10,10,18,.7);
-      border: 1px solid rgba(255,213,106,.18);
-      color: var(--gold);
-      font-size: .8rem;
-      font-weight: 800;
+      border-radius: 99px;
+      background: rgba(5, 5, 16, 0.72);
+      border: 1px solid rgba(255, 178, 0, 0.32);
+      color: #ffd65d;
+      font-size: 0.78rem;
+      font-weight: 900;
     }
-    .body { padding: 14px 16px 16px; }
-    .casino-name { margin: 0 0 8px; font-size: 1.1rem; font-weight: 800; }
+
+    .body {
+      padding: 15px 16px 17px;
+    }
+
+    .name {
+      margin: 0 0 9px;
+      font-size: 1.1rem;
+    }
+
     .bonus {
-      margin-bottom: 10px;
       padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,213,106,.08);
-      border: 1px solid rgba(255,213,106,.14);
-      font-size: .94rem;
+      margin-bottom: 10px;
+      border-radius: 13px;
+      background: rgba(255, 106, 0, 0.08);
+      border: 1px solid rgba(255, 106, 0, 0.23);
     }
-    .bonus strong { color: var(--gold); }
+
+    .bonus strong {
+      color: #ffbe43;
+      margin-right: 7px;
+    }
+
     .meta {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      font-size: .9rem;
+      flex-wrap: wrap;
       color: var(--muted);
-      margin-bottom: 10px;
+      font-size: 0.88rem;
     }
-    .meta span {
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-    }
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .btn-sm { padding: 10px 13px; border-radius: 12px; font-size: .9rem; }
 
-    .slot-card { display: grid; grid-template-columns: 180px 1fr; min-height: 180px; }
+    .meta span {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .small {
+      padding: 10px 13px;
+      border-radius: 11px;
+      font-size: 0.88rem;
+    }
+
+    /* SLOT CARDS */
+
+    .slot {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      min-height: 180px;
+    }
+
     .slot-art {
-      background: linear-gradient(135deg, rgba(255,213,106,.12), rgba(122,60,255,.16));
+      position: relative;
       display: grid;
       place-items: center;
-      position: relative;
+      background: linear-gradient(
+        135deg,
+        rgba(117, 29, 255, 0.27),
+        rgba(255, 106, 0, 0.14)
+      );
     }
+
     .slot-art::before {
       content: "";
       position: absolute;
       inset: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
     }
-    .slot-art span { z-index: 1; font-size: 1.6rem; font-weight: 900; color: var(--gold); }
-    .slot-body { padding: 14px 16px; }
-    .slot-name { margin: 0 0 8px; font-size: 1.05rem; font-weight: 800; }
-    .slot-meta { font-size: .9rem; color: var(--muted); margin-bottom: 10px; }
-    .slot-specs { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
-    .spec { padding: 10px 11px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid var(--line); font-size: .9rem; }
-    .spec label { display: block; font-size: .78rem; color: var(--muted); margin-bottom: 3px; }
 
-    .info {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
-      font-size: .9rem;
+    .slot-art span {
+      position: relative;
+      color: #ffc43e;
+      font-size: 1.55rem;
+      font-weight: 900;
+      text-shadow: 0 0 20px rgba(255, 106, 0, 0.55);
+    }
+
+    .slot-body {
+      padding: 15px 16px;
+    }
+
+    .slot-body h3 {
+      margin: 0 0 8px;
+    }
+
+    .slot-body p {
+      margin: 0 0 10px;
       color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .spec {
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.86rem;
+    }
+
+    .spec label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.73rem;
+      margin-bottom: 3px;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+      font-size: 0.9rem;
       line-height: 1.7;
     }
 
-    footer { padding: 22px 0 40px; color: var(--muted); }
-    .footer-grid { display: grid; grid-template-columns: 1.25fr .8fr .8fr; gap: 16px; }
-    .footer-box { padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid var(--line); }
-    .footer-box h4 { margin: 0 0 6px; color: var(--text); }
-    .footer-box p { margin: 0; font-size: .9rem; }
+    /* FOOTER */
 
-    @media (max-width: 980px) {
+    .footer {
+      padding: 25px 0 44px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 15px;
+    }
+
+    .footer-box {
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .footer-box h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .footer-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
       .hero-card,
       .casino-grid,
       .slot-grid,
       .footer-grid,
-      .slot-card { grid-template-columns: 1fr; }
-      .head { flex-direction: column; align-items: flex-start; }
-      .hero-visual { min-height: 320px; }
+      .slot {
+        grid-template-columns: 1fr;
+      }
+
+      .head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-art {
+        min-height: 310px;
+      }
     }
-    @media (max-width: 640px) {
-      .hero-copy { padding: 18px; }
-      .body,
-      .slot-body,
-      .footer-box { padding: 12px 13px; }
-      .slot-specs { grid-template-columns: 1fr; }
-      .section-head { flex-direction: column; align-items: flex-start; }
-      .brand-logo img { width: 60px; height: 60px; }
+
+    @media (max-width: 620px) {
+      .hero-copy {
+        padding: 19px;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .specs {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap head">
       <div class="brand">
-        <div class="brand-logo">
-          <img src="winning-lion-mascot.png" alt="Voittopiste kasinomaskotti" />
-        </div>
-        <div class="brand-text">
-          <h1 data-i18n="brand">VOITTOPISTE</h1>
-          <p data-i18n="tagline">Moderni monikielinen nettikasino-opas</p>
+        <img class="logo" src="voittopiste-logo.png" alt="Voittopiste logo">
+
+        <div>
+          <h1>VOITTOPISTE</h1>
+          <p data-i18n="tagline">Moderni kasino-opas neljällä kielellä</p>
         </div>
       </div>
-      <div class="langs" role="tablist" aria-label="Language selector">
+
+      <nav class="langs">
         <button class="lang-btn active" data-lang="fi">🇫🇮 FI</button>
         <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
         <button class="lang-btn" data-lang="sv">🇸🇪 SV</button>
         <button class="lang-btn" data-lang="de">🇩🇪 DE</button>
-      </div>
+      </nav>
     </div>
   </header>
 
   <main class="wrap">
+
     <section class="hero">
       <div class="hero-card">
         <div class="hero-copy">
-          <span class="eyebrow" data-i18n="eyebrow">Winner casino guide</span>
+          <span class="eyebrow" data-i18n="eyebrow">Voittopiste.com</span>
+
           <h2>
-            <span data-i18n="hero1">Parhaat</span>
-            <span class="accent" data-i18n="hero2">nettikasinoedut</span>
-            <span data-i18n="hero3">yhdellä sivulla</span>
+            <span data-i18n="hero1">Löydä</span>
+            <span class="accent" data-i18n="hero2">seuraava voittosi</span>
           </h2>
-          <p data-i18n="heroText">Valitse kieli, vertaa kasinoita nopeasti ja täytä omat affiliate-linkit ja bonukset tähän pohjaan. Kaikki on rakennettu näyttämään modernilta ja voittavalta.</p>
-          <div class="hero-actions">
-            <a href="#casinos" class="btn btn-primary" data-i18n="cta1">Näe top 10</a>
-            <a href="#slots" class="btn btn-secondary" data-i18n="cta2">Katso slotit</a>
+
+          <p data-i18n="heroText">
+            Vertaa kasinoita, bonuksia ja slotteja helposti. Lisää omat affiliate-linkkisi ja bannerisi alla oleviin paikkoihin.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#casinos" data-i18n="cta1">Katso kasinot</a>
+            <a class="btn secondary" href="#slots" data-i18n="cta2">Katso slotit</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="halo"></div>
-          <img src="winning-lion-mascot.png" alt="Voittajaleijona kasinoteemalla" />
+
+        <div class="hero-art">
+          <img src="voittopiste-logo.png" alt="Voittopiste.com logo">
         </div>
       </div>
     </section>
 
-    <!-- Top 10 kasinobannereille -->
     <section id="casinos">
       <div class="section-head">
         <div>
-          <h3 data-i18n="casinosTitle">Top 10 kasinot</h3>
-          <p data-i18n="casinosLead">Täytä tähän omat kasinobannerit ja affiliate-linkit.</p>
+          <h2 data-i18n="casinoTitle">Top 10 kasinot</h2>
+          <p data-i18n="casinoLead">Bannerit ja henkilökohtaiset affiliate-linkit muokattavaksi.</p>
         </div>
       </div>
+
       <div class="grid casino-grid">
-        <!-- Casino 1–10, jokaisessa banneri ja linkkinapit -->
-        <!-- Muokkaa href="#" omiksi affiliate-linkeiksi -->
-        <!-- Casino 1 -->
-        <article class="card casino-card">
+
+        <!-- CASINO 1 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">1</div>
-            <div class="badge" data-i18n="featured">Suosikki</div>
-            <img src="https://via.placeholder.com/1200x600/17172b/ffd56a?text=Casino+Banner+1" alt="Casino banner 1" />
+            <span class="rank">1</span>
+            <span class="tag" data-i18n="featured">Suosikki</span>
+            <img src="casino-banner-1.jpg" alt="Casino 1 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 1</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>100% 500€ + 200 FS</span></div>
-            <div class="meta"><span>RTP 96.5%</span><span>Min. talletus 10€</span><span>Kierrätys 35x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 1</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>100% 500€ + 200 FS</div>
+            <div class="meta">
+              <span>RTP 96.5%</span>
+              <span>Min. 10€</span>
+              <span>35x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 2 -->
-        <article class="card casino-card">
+        <!-- CASINO 2 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">2</div>
-            <img src="https://via.placeholder.com/1200x600/121221/ffd56a?text=Casino+Banner+2" alt="Casino banner 2" />
+            <span class="rank">2</span>
+            <img src="casino-banner-2.jpg" alt="Casino 2 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 2</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>200% 300€ + 100 FS</span></div>
-            <div class="meta"><span>RTP 97.1%</span><span>Min. talletus 20€</span><span>Kierrätys 40x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 2</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>200% 300€ + 100 FS</div>
+            <div class="meta">
+              <span>RTP 97.1%</span>
+              <span>Min. 20€</span>
+              <span>40x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 3 -->
-        <article class="card casino-card">
+        <!-- CASINO 3 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">3</div>
-            <img src="https://via.placeholder.com/1200x600/16162a/ffd56a?text=Casino+Banner+3" alt="Casino banner 3" />
+            <span class="rank">3</span>
+            <img src="casino-banner-3.jpg" alt="Casino 3 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 3</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>150% 400€ + 150 FS</span></div>
-            <div class="meta"><span>RTP 96.8%</span><span>Min. talletus 15€</span><span>Kierrätys 35x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 3</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>150% 400€ + 150 FS</div>
+            <div class="meta">
+              <span>RTP 96.8%</span>
+              <span>Min. 15€</span>
+              <span>35x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 4 -->
-        <article class="card casino-card">
+        <!-- CASINO 4 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">4</div>
-            <img src="https://via.placeholder.com/1200x600/181827/ffd56a?text=Casino+Banner+4" alt="Casino banner 4" />
+            <span class="rank">4</span>
+            <img src="casino-banner-4.jpg" alt="Casino 4 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 4</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>100% 200€ + 50 FS</span></div>
-            <div class="meta"><span>RTP 95.9%</span><span>Min. talletus 10€</span><span>Kierrätys 45x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 4</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>100% 200€ + 50 FS</div>
+            <div class="meta">
+              <span>RTP 95.9%</span>
+              <span>Min. 10€</span>
+              <span>45x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 5 -->
-        <article class="card casino-card">
+        <!-- CASINO 5 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">5</div>
-            <img src="https://via.placeholder.com/1200x600/141420/ffd56a?text=Casino+Banner+5" alt="Casino banner 5" />
+            <span class="rank">5</span>
+            <img src="casino-banner-5.jpg" alt="Casino 5 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 5</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>250% 600€ + 250 FS</span></div>
-            <div class="meta"><span>RTP 96.4%</span><span>Min. talletus 25€</span><span>Kierrätys 30x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 5</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>250% 600€ + 250 FS</div>
+            <div class="meta">
+              <span>RTP 96.4%</span>
+              <span>Min. 25€</span>
+              <span>30x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 6 -->
-        <article class="card casino-card">
+        <!-- CASINO 6 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">6</div>
-            <img src="https://via.placeholder.com/1200x600/161625/ffd56a?text=Casino+Banner+6" alt="Casino banner 6" />
+            <span class="rank">6</span>
+            <img src="casino-banner-6.jpg" alt="Casino 6 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 6</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>100% 1000€ + 100 FS</span></div>
-            <div class="meta"><span>RTP 97.0%</span><span>Min. talletus 50€</span><span>Kierrätys 50x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 6</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>100% 1000€ + 100 FS</div>
+            <div class="meta">
+              <span>RTP 97.0%</span>
+              <span>Min. 50€</span>
+              <span>50x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 7 -->
-        <article class="card casino-card">
+        <!-- CASINO 7 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">7</div>
-            <img src="https://via.placeholder.com/1200x600/12121d/ffd56a?text=Casino+Banner+7" alt="Casino banner 7" />
+            <span class="rank">7</span>
+            <img src="casino-banner-7.jpg" alt="Casino 7 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 7</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>80% 300€ + 75 FS</span></div>
-            <div class="meta"><span>RTP 96.2%</span><span>Min. talletus 20€</span><span>Kierrätys 40x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 7</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>80% 300€ + 75 FS</div>
+            <div class="meta">
+              <span>RTP 96.2%</span>
+              <span>Min. 20€</span>
+              <span>40x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 8 -->
-        <article class="card casino-card">
+        <!-- CASINO 8 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">8</div>
-            <img src="https://via.placeholder.com/1200x600/151525/ffd56a?text=Casino+Banner+8" alt="Casino banner 8" />
+            <span class="rank">8</span>
+            <img src="casino-banner-8.jpg" alt="Casino 8 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 8</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>120% 250€ + 120 FS</span></div>
-            <div class="meta"><span>RTP 97.2%</span><span>Min. talletus 15€</span><span>Kierrätys 35x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 8</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>120% 250€ + 120 FS</div>
+            <div class="meta">
+              <span>RTP 97.2%</span>
+              <span>Min. 15€</span>
+              <span>35x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 9 -->
-        <article class="card casino-card">
+        <!-- CASINO 9 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">9</div>
-            <img src="https://via.placeholder.com/1200x600/191929/ffd56a?text=Casino+Banner+9" alt="Casino banner 9" />
+            <span class="rank">9</span>
+            <img src="casino-banner-9.jpg" alt="Casino 9 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 9</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>200% 500€ + 200 FS</span></div>
-            <div class="meta"><span>RTP 95.8%</span><span>Min. talletus 30€</span><span>Kierrätys 45x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 9</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>200% 500€ + 200 FS</div>
+            <div class="meta">
+              <span>RTP 95.8%</span>
+              <span>Min. 30€</span>
+              <span>45x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
 
-        <!-- Casino 10 -->
-        <article class="card casino-card">
+        <!-- CASINO 10 -->
+        <article class="card casino">
           <div class="banner">
-            <div class="rank">10</div>
-            <img src="https://via.placeholder.com/1200x600/15151f/ffd56a?text=Casino+Banner+10" alt="Casino banner 10" />
+            <span class="rank">10</span>
+            <img src="casino-banner-10.jpg" alt="Casino 10 banner">
           </div>
           <div class="body">
-            <h4 class="casino-name">Casino 10</h4>
-            <div class="bonus"><strong data-i18n="bonus">Bonus</strong><span>150% 350€ + 150 FS</span></div>
-            <div class="meta"><span>RTP 96.0%</span><span>Min. talletus 20€</span><span>Kierrätys 40x</span></div>
-            <div class="btn-row">
-              <a class="btn btn-primary btn-sm" href="#" data-i18n="play">Pelaa nyt</a>
-              <a class="btn btn-secondary btn-sm" href="#" data-i18n="review">Arvostelu</a>
+            <h3 class="name">Casino 10</h3>
+            <div class="bonus"><strong data-i18n="bonus">Bonus</strong>150% 350€ + 150 FS</div>
+            <div class="meta">
+              <span>RTP 96.0%</span>
+              <span>Min. 20€</span>
+              <span>40x</span>
+            </div>
+            <div class="buttons">
+              <a class="btn primary small" href="#" data-i18n="play">Pelaa nyt</a>
+              <a class="btn secondary small" href="#" data-i18n="review">Arvostelu</a>
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
-    <!-- 10 slottia / bannereita -->
     <section id="slots">
       <div class="section-head">
         <div>
-          <h3 data-i18n="slotsTitle">Slotit ja speksit</h3>
-          <p data-i18n="slotsLead">Lisää tähän 10 suosikkislottia tai toista bannerilistaa.</p>
+          <h2 data-i18n="slotTitle">10 slottia ja speksit</h2>
+          <p data-i18n="slotLead">Voit käyttää näitä myös lisäkampanjoiden tai affiliate-linkkien paikkoina.</p>
         </div>
       </div>
+
       <div class="grid slot-grid">
-        <!-- Slot 1–10, muokkaa nimiä, speksejä ja linkkejä vapaasti -->
-        <article class="card slot-card">
+
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 1</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 1</h4>
-            <div class="slot-meta">RTP 96.5% · Volatiliteetti: korkea</div>
-            <div class="slot-specs">
-              <div class="spec"><label data-i18n="slot1">Max voitto</label><b>5000x</b></div>
-              <div class="spec"><label data-i18n="slot2">Teema</label><b>Gold / Mystery</b></div>
-              <div class="spec"><label data-i18n="slot3">Kasinot</label><b>Casino 1, 3, 5</b></div>
-              <div class="spec"><label data-i18n="slot4">Huomio</label><b>Bonusystävällinen</b></div>
+            <h3>Slotin nimi 1</h3>
+            <p>RTP 96.5% · Volatiliteetti: korkea</p>
+            <div class="specs">
+              <div class="spec"><label>Max voitto</label><b>5000x</b></div>
+              <div class="spec"><label>Teema</label><b>Gold / Mystery</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 1</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 2</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 2</h4>
-            <div class="slot-meta">RTP 97.2% · Volatiliteetti: keskitaso</div>
-            <div class="slot-specs">
-              <div class="spec"><label data-i18n="slot1">Max voitto</label><b>3000x</b></div>
-              <div class="spec"><label data-i18n="slot2">Teema</label><b>Myth / Fire</b></div>
-              <div class="spec"><label data-i18n="slot3">Kasinot</label><b>Casino 2, 4, 6</b></div>
-              <div class="spec"><label data-i18n="slot4">Huomio</label><b>Nopeat kierrokset</b></div>
+            <h3>Slotin nimi 2</h3>
+            <p>RTP 97.2% · Volatiliteetti: keski</p>
+            <div class="specs">
+              <div class="spec"><label>Max voitto</label><b>3000x</b></div>
+              <div class="spec"><label>Teema</label><b>Myth / Fire</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 2</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 3</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 3</h4>
-            <div class="slot-meta">RTP 95.8% · Volatiliteetti: matala</div>
-            <div class="slot-specs">
-              <div class="spec"><label data-i18n="slot1">Max voitto</label><b>2000x</b></div>
-              <div class="spec"><label data-i18n="slot2">Teema</label><b>Neon / Vegas</b></div>
-              <div class="spec"><label data-i18n="slot3">Kasinot</label><b>Casino 1, 2, 7</b></div>
-              <div class="spec"><label data-i18n="slot4">Huomio</label><b>Vakaa peli</b></div>
+            <h3>Slotin nimi 3</h3>
+            <p>RTP 95.8% · Volatiliteetti: matala</p>
+            <div class="specs">
+              <div class="spec"><label>Max voitto</label><b>2000x</b></div>
+              <div class="spec"><label>Teema</label><b>Neon / Vegas</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 3</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 4</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 4</h4>
-            <div class="slot-meta">RTP 96.9% · Volatiliteetti: korkea</div>
-            <div class="slot-specs">
-              <div class="spec"><label data-i18n="slot1">Max voitto</label><b>10000x</b></div>
-              <div class="spec"><label data-i18n="slot2">Teema</label><b>Crown / Royale</b></div>
-              <div class="spec"><label data-i18n="slot3">Kasinot</label><b>Casino 3, 5, 8</b></div>
-              <div class="spec"><label data-i18n="slot4">Huomio</label><b>Iso jackpot-potentiaali</b></div>
+            <h3>Slotin nimi 4</h3>
+            <p>RTP 96.9% · Volatiliteetti: korkea</p>
+            <div class="specs">
+              <div class="spec"><label>Max voitto</label><b>10000x</b></div>
+              <div class="spec"><label>Teema</label><b>Crown / Royale</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 4</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <!-- Slot 5–10, pelkkä placeholder – muokkaa vapaasti -->
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 5</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 5</h4>
-            <div class="slot-meta">RTP 96.0% · Volatiliteetti: keski</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 5</h3>
+            <p>RTP 96.0% · Volatiliteetti: keski</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>2500x</b></div>
               <div class="spec"><label>Teema</label><b>Adventure</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 4, 6</b></div>
-              <div class="spec"><label>Huomio</label><b>Hyvä peruspeli</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 5</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 6</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 6</h4>
-            <div class="slot-meta">RTP 95.5% · Volatiliteetti: korkea</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 6</h3>
+            <p>RTP 95.5% · Volatiliteetti: korkea</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>8000x</b></div>
               <div class="spec"><label>Teema</label><b>Dark / Horror</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 7</b></div>
-              <div class="spec"><label>Huomio</label><b>Riskinen mutta iso potentiaali</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 6</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 7</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 7</h4>
-            <div class="slot-meta">RTP 97.0% · Volatiliteetti: matala</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 7</h3>
+            <p>RTP 97.0% · Volatiliteetti: matala</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>1500x</b></div>
               <div class="spec"><label>Teema</label><b>Fruit / Classic</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 2, 8</b></div>
-              <div class="spec"><label>Huomio</label><b>Sopii aloittelijalle</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 7</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 8</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 8</h4>
-            <div class="slot-meta">RTP 96.3% · Volatiliteetti: keski</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 8</h3>
+            <p>RTP 96.3% · Volatiliteetti: keski</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>4000x</b></div>
               <div class="spec"><label>Teema</label><b>Space</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 1, 9</b></div>
-              <div class="spec"><label>Huomio</label><b>Hyvä grafiikka</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 8</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 9</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 9</h4>
-            <div class="slot-meta">RTP 95.0% · Volatiliteetti: korkea</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 9</h3>
+            <p>RTP 95.0% · Volatiliteetti: korkea</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>12000x</b></div>
               <div class="spec"><label>Teema</label><b>Wild / Animals</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 3, 10</b></div>
-              <div class="spec"><label>Huomio</label><b>Villi vaihtelu</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 9</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
 
-        <article class="card slot-card">
+        <article class="card slot">
           <div class="slot-art"><span>SLOT 10</span></div>
           <div class="slot-body">
-            <h4 class="slot-name">Slot 10</h4>
-            <div class="slot-meta">RTP 96.8% · Volatiliteetti: keski</div>
-            <div class="slot-specs">
+            <h3>Slotin nimi 10</h3>
+            <p>RTP 96.8% · Volatiliteetti: keski</p>
+            <div class="specs">
               <div class="spec"><label>Max voitto</label><b>3500x</b></div>
               <div class="spec"><label>Teema</label><b>Royal / Luxury</b></div>
-              <div class="spec"><label>Kasinot</label><b>Casino 5, 6</b></div>
-              <div class="spec"><label>Huomio</label><b>Hyvä VIP-fiilis</b></div>
+              <div class="spec"><label>Casino</label><b>Casino 10</b></div>
+              <div class="spec"><label>Linkki</label><b><a href="#" data-i18n="open">Avaa</a></b></div>
             </div>
           </div>
         </article>
+
       </div>
-      <div class="info" data-i18n="disclaimer">
-        Vastuullinen pelaaminen: sivusto on 18+ ja sisältää vain informatiivista sisältöä. Lisää omat lisenssi- ja affiliate-merkintäsi ennen julkaisua.
+
+      <div class="notice" data-i18n="notice">
+        🔞 Vastuullinen pelaaminen: tämä sivusto on vain 18-vuotiaille. Lisää omat affiliate- ja lisenssitietosi ennen julkaisua.
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="wrap footer-grid">
       <div class="footer-box">
-        <h4 data-i18n="footer1">Voittopiste</h4>
-        <p data-i18n="footer1Text">Moderni kasinovertailu, joka näyttää premiumilta ja toimii neljällä kielellä.</p>
+        <h3>VOITTOPISTE.COM</h3>
+        <p data-i18n="footerText">Kasinot, bonusvertailut ja slot-speksit yhdellä sivulla.</p>
       </div>
+
       <div class="footer-box">
-        <h4 data-i18n="footer2">Yhteys</h4>
+        <h3 data-i18n="contact">Yhteys</h3>
         <p>info@voittopiste.com</p>
       </div>
+
       <div class="footer-box">
-        <h4 data-i18n="footer3">Vastuullinen pelaaminen</h4>
-        <p data-i18n="footer3Text">Pelaa maltilla ja varmista, että sisältösi noudattaa paikallisia sääntöjä.</p>
+        <h3 data-i18n="responsible">Vastuullinen pelaaminen</h3>
+        <p>18+ · Pelaa maltilla</p>
       </div>
     </div>
   </footer>
 
   <script>
-    const copy = {
+    const translations = {
       fi: {
-        brand:"VOITTOPISTE", tagline:"Moderni monikielinen nettikasino-opas",
-        eyebrow:"Voittajan kasino-opas",
-        hero1:"Parhaat", hero2:"nettikasinoedut", hero3:"yhdellä sivulla",
-        heroText:"Valitse kieli, vertaa kasinoita nopeasti ja täytä omat affiliate-linkit ja bonukset tähän pohjaan. Kaikki on rakennettu näyttämään modernilta ja voittavalta.",
-        cta1:"Näe top 10", cta2:"Katso slotit",
-        casinosTitle:"Top 10 kasinot",
-        casinosLead:"Täytä tähän omat kasinobannerit ja affiliate-linkit.",
-        slotsTitle:"Slotit ja speksit",
-        slotsLead:"Lisää tähän 10 suosikkislottia tai toista bannerilistaa.",
-        featured:"Suosikki", bonus:"Bonus", play:"Pelaa nyt", review:"Arvostelu",
-        slot1:"Max voitto", slot2:"Teema", slot3:"Kasinot", slot4:"Huomio",
-        disclaimer:"Vastuullinen pelaaminen: sivusto on 18+ ja sisältää vain informatiivista sisältöä. Lisää omat lisenssi- ja affiliate-merkintäsi ennen julkaisua.",
-        footer1:"Voittopiste",
-        footer1Text:"Moderni kasinovertailu, joka näyttää premiumilta ja toimii neljällä kielellä.",
-        footer2:"Yhteys",
-        footer3:"Vastuullinen pelaaminen",
-        footer3Text:"Pelaa maltilla ja varmista, että sisältösi noudattaa paikallisia sääntöjä."
+        tagline: "Moderni kasino-opas neljällä kielellä",
+        eyebrow: "Voittopiste.com",
+        hero1: "Löydä",
+        hero2: "seuraava voittosi",
+        heroText: "Vertaa kasinoita, bonuksia ja slotteja helposti. Lisää omat affiliate-linkkisi ja bannerisi alla oleviin paikkoihin.",
+        cta1: "Katso kasinot",
+        cta2: "Katso slotit",
+        casinoTitle: "Top 10 kasinot",
+        casinoLead: "Bannerit ja henkilökohtaiset affiliate-linkit muokattavaksi.",
+        slotTitle: "10 slottia ja speksit",
+        slotLead: "Voit käyttää näitä myös lisäkampanjoiden tai affiliate-linkkien paikkoina.",
+        featured: "Suosikki",
+        bonus: "Bonus",
+        play: "Pelaa nyt",
+        review: "Arvostelu",
+        open: "Avaa",
+        notice: "🔞 Vastuullinen pelaaminen: tämä sivusto on vain 18-vuotiaille. Lisää omat affiliate- ja lisenssitietosi ennen julkaisua.",
+        footerText: "Kasinot, bonusvertailut ja slot-speksit yhdellä sivulla.",
+        contact: "Yhteys",
+        responsible: "Vastuullinen pelaaminen"
       },
+
       en: {
-        brand:"VOITTOPISTE", tagline:"Modern multilingual online casino guide",
-        eyebrow:"Winner casino guide",
-        hero1:"Best", hero2:"casino offers", hero3:"on one page",
-        heroText:"Switch language, compare casinos quickly and plug in your own affiliate links and bonuses into this template. Built to look modern and winning.",
-        cta1:"See top 10", cta2:"View slots",
-        casinosTitle:"Top 10 casinos",
-        casinosLead:"Fill in your own casino banners and affiliate links here.",
-        slotsTitle:"Slots and specs",
-        slotsLead:"Add your 10 favourite slots or a second banner list.",
-        featured:"Featured", bonus:"Bonus", play:"Play now", review:"Review",
-        slot1:"Max win", slot2:"Theme", slot3:"Casinos", slot4:"Note",
-        disclaimer:"Responsible gaming: this site is 18+ and informational only. Add your own license and affiliate disclosures before publishing.",
-        footer1:"Voittopiste",
-        footer1Text:"A modern casino comparison site that looks premium and works in four languages.",
-        footer2:"Contact",
-        footer3:"Responsible gaming",
-        footer3Text:"Play responsibly and make sure your content follows local regulations."
+        tagline: "Modern casino guide in four languages",
+        eyebrow: "Voittopiste.com",
+        hero1: "Find",
+        hero2: "your next winning pick",
+        heroText: "Compare casinos, bonuses and slots. Add your own affiliate links and banners in the places provided below.",
+        cta1: "View casinos",
+        cta2: "View slots",
+        casinoTitle: "Top 10 casinos",
+        casinoLead: "Banners and personal affiliate links ready to edit.",
+        slotTitle: "10 slots and specs",
+        slotLead: "You can also use these as additional campaign or affiliate link placements.",
+        featured: "Featured",
+        bonus: "Bonus",
+        play: "Play now",
+        review: "Review",
+        open: "Open",
+        notice: "🔞 Responsible gaming: this site is for adults 18+ only. Add your own affiliate and licensing information before publishing.",
+        footerText: "Casinos, bonus comparisons and slot specs in one place.",
+        contact: "Contact",
+        responsible: "Responsible gaming"
       },
+
       sv: {
-        brand:"VOITTOPISTE", tagline:"Modern flerspråkig casino-guide online",
-        eyebrow:"Vinnarguide för casinon",
-        hero1:"Bästa", hero2:"casinoerbjudanden", hero3:"på en sida",
-        heroText:"Välj språk, jämför casinon snabbt och fyll i dina egna affiliate-länkar och bonusar i denna mall. Allt är byggt för att se modernt och vinnande ut.",
-        cta1:"Visa topp 10", cta2:"Visa slots",
-        casinosTitle:"Topp 10 casinon",
-        casinosLead:"Fyll i egna casinobanners och affiliate-länkar här.",
-        slotsTitle:"Slots och specifikationer",
-        slotsLead:"Lägg till dina 10 favorit-slots eller en andra bannerlista.",
-        featured:"Favorit", bonus:"Bonus", play:"Spela nu", review:"Recension",
-        slot1:"Maxvinst", slot2:"Tema", slot3:"Casinon", slot4:"Notis",
-        disclaimer:"Ansvarsfullt spelande: denna sida är 18+ och endast informativ. Lägg till egna licens- och affiliate-notiser innan publicering.",
-        footer1:"Voittopiste",
-        footer1Text:"En modern casinon jämförelsesida som ser premium ut och fungerar på fyra språk.",
-        footer2:"Kontakt",
-        footer3:"Ansvarsfullt spelande",
-        footer3Text:"Spela ansvarsfullt och följ lokala regler."
+        tagline: "Modern casinoguide på fyra språk",
+        eyebrow: "Voittopiste.com",
+        hero1: "Hitta",
+        hero2: "ditt nästa vinnarval",
+        heroText: "Jämför casinon, bonusar och slots. Lägg till dina egna affiliate-länkar och banners på platserna nedan.",
+        cta1: "Visa casinon",
+        cta2: "Visa slots",
+        casinoTitle: "Topp 10 casinon",
+        casinoLead: "Banners och personliga affiliate-länkar som du kan redigera.",
+        slotTitle: "10 slots och specifikationer",
+        slotLead: "Du kan också använda dessa som extra kampanj- eller affiliatelänkar.",
+        featured: "Favorit",
+        bonus: "Bonus",
+        play: "Spela nu",
+        review: "Recension",
+        open: "Öppna",
+        notice: "🔞 Ansvarsfullt spelande: denna sida är endast för personer över 18 år. Lägg till dina egna affiliate- och licensuppgifter före publicering.",
+        footerText: "Casinon, bonusjämförelser och slot-specifikationer på en sida.",
+        contact: "Kontakt",
+        responsible: "Ansvarsfullt spelande"
       },
+
       de: {
-        brand:"VOITTOPISTE", tagline:"Moderner mehrsprachiger Online-Casino-Guide",
-        eyebrow:"Gewinner-Casino-Guide",
-        hero1:"Die besten", hero2:"Casino-Angebote", hero3:"auf einer Seite",
-        heroText:"Sprache wechseln, Casinos schnell vergleichen und eigene Affiliate-Links sowie Boni in diese Vorlage eintragen. Alles wirkt modern und siegreich.",
-        cta1:"Top 10 ansehen", cta2:"Slots ansehen",
-        casinosTitle:"Top 10 Casinos",
-        casinosLead:"Trage hier eigene Casino-Banner und Affiliate-Links ein.",
-        slotsTitle:"Slots und Spezifikationen",
-        slotsLead:"Füge 10 Lieblingsslots oder eine zweite Bannerliste hinzu.",
-        featured:"Empfohlen", bonus:"Bonus", play:"Jetzt spielen", review:"Bewertung",
-        slot1:"Max Gewinn", slot2:"Thema", slot3:"Casinos", slot4:"Hinweis",
-        disclaimer:"Verantwortungsvolles Spielen: Diese Seite ist 18+ und informativ. Ergänze vor der Veröffentlichung deine Lizenz- und Affiliate-Hinweise.",
-        footer1:"Voittopiste",
-        footer1Text:"Eine moderne Casino-Vergleichsseite, die premium aussieht und in vier Sprachen funktioniert.",
-        footer2:"Kontakt",
-        footer3:"Verantwortungsvolles Spielen",
-        footer3Text:"Spiele verantwortungsvoll und halte dich an lokale Vorschriften."
+        tagline: "Moderner Casino-Guide in vier Sprachen",
+        eyebrow: "Voittopiste.com",
+        hero1: "Finde",
+        hero2: "deinen nächsten Gewinner",
+        heroText: "Vergleiche Casinos, Boni und Slots. Füge deine eigenen Affiliate-Links und Banner an den vorgesehenen Stellen ein.",
+        cta1: "Casinos ansehen",
+        cta2: "Slots ansehen",
+        casinoTitle: "Top 10 Casinos",
+        casinoLead: "Banner und persönliche Affiliate-Links zum Bearbeiten.",
+        slotTitle: "10 Slots und Spezifikationen",
+        slotLead: "Du kannst diese Plätze auch für zusätzliche Kampagnen oder Affiliate-Links verwenden.",
+        featured: "Empfohlen",
+        bonus: "Bonus",
+        play: "Jetzt spielen",
+        review: "Bewertung",
+        open: "Öffnen",
+        notice: "🔞 Verantwortungsvolles Spielen: Diese Seite ist nur für Personen ab 18 Jahren. Ergänze vor der Veröffentlichung deine Affiliate- und Lizenzinformationen.",
+        footerText: "Casinos, Bonusvergleiche und Slot-Spezifikationen auf einer Seite.",
+        contact: "Kontakt",
+        responsible: "Verantwortungsvolles Spielen"
       }
     };
 
-    const langButtons = document.querySelectorAll('.lang-btn');
+    const buttons = document.querySelectorAll(".lang-btn");
 
     function setLang(lang) {
       document.documentElement.lang = lang;
-      localStorage.setItem('vp_lang', lang);
-      langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        if (copy[lang] && copy[lang][key]) {
-          el.textContent = copy[lang][key];
+      localStorage.setItem("vp_lang", lang);
+
+      buttons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
       });
     }
 
-    langButtons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
-    setLang(localStorage.getItem('vp_lang') || 'fi');
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLang(button.dataset.lang);
+      });
+    });
+
+    setLang(localStorage.getItem("vp_lang") || "fi");
   </script>
 </body>
 </html>
