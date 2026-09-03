@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Casino 1 review, bonus details, pros, cons and verdict on Voittopiste." />
+  <title>Casino 1 Review | Voittopiste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050510;
+      --navy: #090a20;
+      --panel: #11122e;
+      --panel2: #171846;
+      --purple: #751dff;
+      --purple2: #c239ff;
+      --orange: #ff6a00;
+      --orange2: #ffb000;
+      --white: #f8f7ff;
+      --muted: #aeb1cf;
+      --line: rgba(255,255,255,0.12);
+      --gradient: linear-gradient(135deg, #6f18ff 0%, #c637ff 45%, #ff6a00 100%);
+      --gold-gradient: linear-gradient(135deg, #ff9d00, #ffe24a);
+      --shadow: 0 22px 65px rgba(0,0,0,0.45);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% -20%, #25105a 0%, transparent 42%),
+        linear-gradient(180deg, #03030a 0%, var(--ink) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0 47%, rgba(117,29,255,0.055) 48% 49%, transparent 50%);
+      background-size: 120px 120px;
+      opacity: 0.7;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5,5,16,0.84);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--purple2);
+      box-shadow: 0 0 0 4px rgba(117,29,255,0.18), 0 0 32px rgba(194,57,255,0.34);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      letter-spacing: 0.08em;
+      font-weight: 900;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 700;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .promo {
+      display: block;
+      width: min(220px, calc(100vw - 28px));
+      margin: 18px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(194,57,255,0.32);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    }
+
+    .promo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .page {
+      padding: 28px 0 42px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(17,18,46,0.98), rgba(8,8,22,0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(194,57,255,0.12);
+      border: 1px solid rgba(194,57,255,0.35);
+      color: #eaa7ff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .hero-main h2 {
+      margin: 18px 0 12px;
+      font-size: clamp(2.1rem, 4.5vw, 4rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .accent {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin: 0;
+      max-width: 62ch;
+    }
+
+    .rating-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--line);
+      color: var(--white);
+    }
+
+    .score {
+      display: grid;
+      place-items: center;
+      min-width: 76px;
+      height: 60px;
+      border-radius: 18px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      background: var(--gold-gradient);
+      color: #1a1800;
+      box-shadow: inset 0 2px 10px rgba(255,255,255,0.22);
+    }
+
+    .sidebar {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .mini-card h3 {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 13px 17px;
+      border-radius: 13px;
+      font-weight: 900;
+      border: 1px solid transparent;
+    }
+
+    .primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 12px 22px rgba(117,29,255,0.25);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--line);
+      color: var(--white);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+    }
+
+    .main-col,
+    .side-col {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section {
+      padding: 22px 20px;
+    }
+
+    .section h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.1rem, 2vw, 1.7rem);
+    }
+
+    .bonus-box {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .bonus-item {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .bonus-item label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .bonus-item strong {
+      display: block;
+      font-size: 1.08rem;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .stat strong {
+      font-size: 1rem;
+    }
+
+    .faqs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .faq p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .checklist {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .checklist h4 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 22px 18px 12px;
+    }
+
+    .cta h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    }
+
+    .cta p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .bonus-box,
+      .grid-2,
+      .pros-cons {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .section,
+      .sidebar {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap head">
+      <div class="brand">
+        <img class="logo" src="../images/banner/voittopiste_casino_bonus.png" alt="Voittopiste logo" />
+        <div>
+          <h1>VOITTOPISTE</h1>
+          <p>Casino reviews, bonuses and slot picks</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="#review">Review</a>
+        <a href="#bonuses">Bonuses</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap promo" aria-label="promo banner">
+    <img src="../images/banner/Rooli_dark.png" alt="Casino bonus banner" />
+  </div>
+
+  <main class="wrap page">
+    <section class="hero" id="review">
+      <div class="panel hero-main">
+        <span class="eyebrow">Review</span>
+        <h2><span class="accent">Casino</span> Rooli</h2>
+        <p class="lead">
+          Casino Rooli is a polished, modern gaming site with a strong welcome package, easy navigation,
+          and a good mix of slots, live casino, and table games. It is a reliable pick for players who
+          want a fast registration process and a straightforward bonus experience.
+        </p>
+
+        <div class="rating-row">
+          <div class="score">4.8</div>
+          <div class="pill">⭐ Excellent user experience</div>
+          <div class="pill">🎰 Large slot selection</div>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="#bonuses">See bonuses</a>
+          <a class="btn secondary" href="../index.html">Back to homepage</a>
+        </div>
+      </div>
+
+      <aside class="panel sidebar">
+        <div class="mini-card">
+          <h3>Bonus</h3>
+          <strong>UP TO €4,000 + 475 FS</strong>
+          <span>Minimum deposit: €20</span>
+        </div>
+
+        <div class="mini-card">
+          <h3>Licensing</h3>
+          <strong>Befuria GO OÜ Game Providers and Licensing</strong>
+          <span>Secure and regulated operator</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="content">
+      <div class="main-col">
+        <article class="panel section" id="bonuses">
+          <h3>Bonus and promotion overview</h3>
+          <div class="bonus-box">
+            <div class="bonus-item">
+              <label>Welcome bonus</label>
+              <strong>UP TO €4,000</strong>
+            </div>
+            <div class="bonus-item">
+              <label>Free spins</label>
+              <strong>475 FS</strong>
+            </div>
+            <div class="bonus-item">
+              <label>Wagering</label>
+              <strong>45x</strong>
+            </div>
+          </div>
+
+          <ul class="list">
+            <li>Bonus is straightforward and easy to understand.</li>
+            <li>Free spins are valid on selected slot titles.</li>
+            <li>Regular reload bonuses appear for returning players.</li>
+            <li>VIP program rewards frequent deposits and active play.</li>
+          </ul>
+        </article>
+
+        <article class="panel section">
+          <h3>Pros & cons</h3>
+          <div class="pros-cons">
+            <div class="checklist">
+              <h4>Pros</h4>
+              <ul>
+                <li>Fast sign-up flow</li>
+                <li>Strong welcome offer</li>
+                <li>Large game library</li>
+                <li>Clear bonus terms</li>
+                <li>Mobile-friendly layout</li>
+              </ul>
+            </div>
+
+            <div class="checklist">
+              <h4>Cons</h4>
+              <ul>
+                <li>Some games restricted by region</li>
+                <li>Withdrawals can take longer during busy periods</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel section" id="faq">
+          <h3>Frequently asked questions</h3>
+          <div class="faqs">
+            <div class="faq">
+              <strong>Is Rooli safe?</strong>
+              <p>Yes. It uses secure encryption, well-known payment methods, and operates under a recognized gaming license.</p>
+            </div>
+
+            <div class="faq">
+              <strong>How long do payouts take?</strong>
+              <p>Most withdrawals are processed within 24–72 hours, though bank transfers may take a little longer.</p>
+            </div>
+
+            <div class="faq">
+              <strong>What is the minimum deposit?</strong>
+              <p>The standard minimum initial deposit is €20, although selected payment methods may vary.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="side-col">
+        <div class="panel section">
+          <h3>Casino snapshot</h3>
+          <div class="grid-2">
+            <div class="stat">
+              <span>Game types</span>
+              <strong>Slots, live casino, tables</strong>
+            </div>
+            <div class="stat">
+              <span>Supported payments</span>
+              <strong>Visa, Mastercard, Skrill, Neteller, bank transfer</strong>
+            </div>
+            <div class="stat">
+              <span>Mobile support</span>
+              <strong>Android, iPhone, browser</strong>
+            </div>
+            <div class="stat">
+              <span>Languages</span>
+              <strong>EN, FI, EE</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel cta">
+          <h3>Ready to play?</h3>
+          <p>Claim the welcome bonus and start exploring the game library with a trusted casino partner.</p>
+          <a class="btn primary" href="https://rooli.live/n1fe9fa182">Play now</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
